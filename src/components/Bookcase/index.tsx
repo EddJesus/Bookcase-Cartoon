@@ -1,23 +1,39 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import { Container, ShelfWrapper, TopBookShelf, BottomBookShelf } from './Bookcase.styles';
 
 import { Book } from '../index'
 
-const Bookcase = () => {
+type BookcaseProps = {
+  bookshelf: {
+    topShelf: BookType[]
+    bottomShelf: BookType[]
+  }
+}
+
+const Bookcase = ({ bookshelf }: BookcaseProps) => {
   return (
     <Container>
       <ShelfWrapper>
         <TopBookShelf>
-          <Book color='#e40c0c' letter="A"/>
-          <Book color='#5e38ac' letter="b" />
-          <Book color='#efd9d4' letter="c" />
-          <Book color='#2092cf' letter="d" />
+          {
+            bookshelf.topShelf.map((book: BookType): ReactElement => {
+              return (book.color === "") && (book.letter === "") ? 
+              <>
+              </> : 
+              <Book color={book.color} letter={book.letter} />
+            })
+          }
         </TopBookShelf>
         <BottomBookShelf>
-          <Book color='#a5226f' letter="e" />
-          <Book color='#19aa1e' letter="f" />
-          <Book color='#cec817' letter="a" />
+          {
+            bookshelf.bottomShelf.map((book: BookType): ReactElement => {
+              return (book.color === "") && (book.letter === "") ? 
+              <>
+              </> : 
+              <Book color={book.color} letter={book.letter} />
+            })
+          }
         </BottomBookShelf>
       </ShelfWrapper>
     </Container>
