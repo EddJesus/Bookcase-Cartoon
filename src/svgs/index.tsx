@@ -1,6 +1,6 @@
 export { default as BgStripes } from "./BgStripes";
 export { default as Board } from "./Board";
-export { default as BookA } from "./BookA";
+export { default as BookSvg } from "./BookSvg";
 export { default as BookB } from "./BookB";
 export { default as BookC } from "./BookC";
 export { default as BookD } from "./BookD";

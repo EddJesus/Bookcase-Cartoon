@@ -1,17 +1,25 @@
 import React from 'react';
 
-import { Container } from './Bookcase.styles';
+import { Container, ShelfWrapper, TopBookShelf, BottomBookShelf } from './Bookcase.styles';
 
-import { BookA, BookB, BookC } from '../../svgs'
+import { Book } from '../index'
 
 const Bookcase = () => {
   return (
     <Container>
-      <div style={{width: "100%", height: "100%", maxWidth: "500px", paddingRight: "7%"}}>
-      <BookA></BookA>
-      <BookB></BookB>
-      <BookC></BookC>
-      </div>
+      <ShelfWrapper>
+        <TopBookShelf>
+          <Book color='#e40c0c' letter="A"/>
+          <Book color='#5e38ac' letter="b" />
+          <Book color='#efd9d4' letter="c" />
+          <Book color='#2092cf' letter="d" />
+        </TopBookShelf>
+        <BottomBookShelf>
+          <Book color='#a5226f' letter="e" />
+          <Book color='#19aa1e' letter="f" />
+          <Book color='#cec817' letter="a" />
+        </BottomBookShelf>
+      </ShelfWrapper>
     </Container>
   );
 };
