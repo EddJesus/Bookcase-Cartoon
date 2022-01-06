@@ -30,7 +30,7 @@ The application is a bookcase that can be controlled by a board and a form.
    ```sh
    yarn
    ```
-3. Start webpack serve
+3. Start react app
    ```sh
    yarn start
    ```
