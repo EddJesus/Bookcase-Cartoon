@@ -3,6 +3,8 @@ declare module '*.svg' {
 }
 
 declare type BookType = {
+  id: string;
   color: string;
   letter: string;
+  letterColor: string
 }

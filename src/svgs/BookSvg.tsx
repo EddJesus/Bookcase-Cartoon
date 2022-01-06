@@ -4,6 +4,7 @@ import { SVGProps } from "react";
 interface BookInterface extends SVGProps<SVGSVGElement>{
   color: string
   letter: string
+  letterColor: string
 }
 
 const chooseLetter = (letter: string) => {
@@ -51,7 +52,7 @@ const SvgBookA = (props: BookInterface) => (
         fill: "#e7dfef",
       }}
     />
-    <path d={chooseLetter(props.letter)} />
+    <path d={chooseLetter(props.letter)} style={{fill: props.letterColor}} />
   </svg>
 );
 

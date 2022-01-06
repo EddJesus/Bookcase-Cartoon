@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import { Draggable, Droppable } from 'react-beautiful-dnd'
 
 import { Container, ShelfWrapper, TopBookShelf, BottomBookShelf } from './Bookcase.styles';
 
@@ -14,29 +15,49 @@ type BookcaseProps = {
 const Bookcase = ({ bookshelf }: BookcaseProps) => {
   return (
     <Container>
-      <ShelfWrapper>
-        <TopBookShelf>
-          {
-            bookshelf.topShelf.map((book: BookType): ReactElement => {
-              return (book.color === "") && (book.letter === "") ? 
-              <>
-              </> : 
-              <Book color={book.color} letter={book.letter} />
-            })
-          }
-        </TopBookShelf>
-        <BottomBookShelf>
-          {
-            bookshelf.bottomShelf.map((book: BookType): ReactElement => {
-              return (book.color === "") && (book.letter === "") ? 
-              <>
-              </> : 
-              <Book color={book.color} letter={book.letter} />
-            })
-          }
-        </BottomBookShelf>
-      </ShelfWrapper>
-    </Container>
+        <ShelfWrapper>
+            <Droppable droppableId='top' direction="horizontal">
+              { (provided) => (
+                <TopBookShelf {...provided.droppableProps} ref={provided.innerRef}>
+                    {bookshelf.topShelf.map(({id, color, letter, letterColor}: BookType, index): ReactElement => {
+                      return (id === '' && letter === '') ? 
+                      <></>
+                      :
+                      <Draggable key={id} draggableId={id} index={index}>
+                        {(provided) => (
+                          <div {...provided.dragHandleProps} {...provided.draggableProps} ref={provided.innerRef}>
+                            <Book color={color} letter={letter} letterColor={letterColor} />
+                          </div>
+                        )}
+                      </Draggable>
+                    })
+                  }
+                  {provided.placeholder}
+                </TopBookShelf>
+              ) }
+            </Droppable>
+            <Droppable droppableId='bottom' direction="horizontal">
+              { (provided) => (
+                <BottomBookShelf {...provided.droppableProps} ref={provided.innerRef}>
+                    {bookshelf.bottomShelf.map(({id, color, letter, letterColor}: BookType, index): ReactElement => {
+                      return (id === '' && letter === '') ? 
+                        <></>
+                        :
+                        <Draggable key={id} draggableId={id} index={index}>
+                          {(provided) => (
+                            <div {...provided.dragHandleProps} {...provided.draggableProps} ref={provided.innerRef}>
+                              <Book color={color} letter={letter} letterColor={letterColor} />
+                            </div>
+                          )}
+                        </Draggable>
+                    })
+                  }
+                  {provided.placeholder}
+                </BottomBookShelf>
+              ) }
+            </Droppable>
+        </ShelfWrapper>
+      </Container>
   );
 };
 
