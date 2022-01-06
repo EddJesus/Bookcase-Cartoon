@@ -1,23 +1,21 @@
-import React, { useState } from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 
 import { Container } from './FilterButton.styles';
 
 import { FilterAlphabetic, FilterSizes, FilterColors } from '../../svgs'
 
-type FilterButtonProps = {
+interface FilterButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
   active: boolean;
-  icon: "colors" | "size" | "alphabetics";
+  filterType: "colors" | "size" | "alphabetics";
 }
 
-const FilterButton = ({ active, icon }: FilterButtonProps) => {
-
-  const [actived, setActived ] = useState(active)
+const FilterButton = (props: FilterButtonProps) => {
 
   return (
-    <Container active={actived} onClick={() => setActived(!actived)}>
-      { icon === "size" ? 
+    <Container {...props}>
+      { props.filterType === "size" ? 
         <FilterSizes /> :
-        icon === "alphabetics" ?
+        props.filterType === "alphabetics" ?
         <FilterAlphabetic /> :
         <FilterColors />
       }

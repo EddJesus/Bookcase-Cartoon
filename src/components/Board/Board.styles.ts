@@ -72,4 +72,6 @@ export const ActiveButton = styled(Button)`
   height: 4.0rem;
   width: 70%;
 
+  z-index: 4;
+
 `

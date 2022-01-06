@@ -19,14 +19,14 @@ const Bookcase = ({ bookshelf }: BookcaseProps) => {
             <Droppable droppableId='top' direction="horizontal">
               { (provided) => (
                 <TopBookShelf {...provided.droppableProps} ref={provided.innerRef}>
-                    {bookshelf.topShelf.map(({id, color, letter, letterColor}: BookType, index): ReactElement => {
+                    {bookshelf.topShelf.map(({id, color, letter, letterColor, size}: BookType, index): ReactElement => {
                       return (id === '' && letter === '') ? 
                       <></>
                       :
                       <Draggable key={id} draggableId={id} index={index}>
                         {(provided) => (
                           <div {...provided.dragHandleProps} {...provided.draggableProps} ref={provided.innerRef}>
-                            <Book color={color} letter={letter} letterColor={letterColor} />
+                            <Book color={color} letter={letter} letterColor={letterColor} size={size}/>
                           </div>
                         )}
                       </Draggable>
@@ -39,14 +39,14 @@ const Bookcase = ({ bookshelf }: BookcaseProps) => {
             <Droppable droppableId='bottom' direction="horizontal">
               { (provided) => (
                 <BottomBookShelf {...provided.droppableProps} ref={provided.innerRef}>
-                    {bookshelf.bottomShelf.map(({id, color, letter, letterColor}: BookType, index): ReactElement => {
+                    {bookshelf.bottomShelf.map(({id, color, letter, letterColor, size}: BookType, index): ReactElement => {
                       return (id === '' && letter === '') ? 
                         <></>
                         :
                         <Draggable key={id} draggableId={id} index={index}>
                           {(provided) => (
                             <div {...provided.dragHandleProps} {...provided.draggableProps} ref={provided.innerRef}>
-                              <Book color={color} letter={letter} letterColor={letterColor} />
+                              <Book color={color} letter={letter} letterColor={letterColor} size={size} />
                             </div>
                           )}
                         </Draggable>

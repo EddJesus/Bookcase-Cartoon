@@ -15,6 +15,8 @@ export const Container = styled.button<FilterButtonProps>`
   justify-content: center;
   align-items: center;
 
+  color: darksalmon;
+
   z-index: 5;
 
   margin: 6px;

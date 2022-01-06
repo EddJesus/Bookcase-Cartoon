@@ -6,5 +6,6 @@ declare type BookType = {
   id: string;
   color: string;
   letter: string;
-  letterColor: string
+  letterColor: string;
+  size: number;
 }

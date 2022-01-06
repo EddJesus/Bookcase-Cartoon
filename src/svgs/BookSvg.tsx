@@ -21,8 +21,14 @@ const chooseLetter = (letter: string) => {
       return "m41.3 177.6.1-2.7h2.4v5.2h-15v-2.5h2.1v-12.9h-2.1v-2.4h14.6v5.1H41l-.1-2.7h-7.4v5H41v2.5h-7.5v5.3h7.8z"
     case "f":
       return "M29.8 180.1v-2.5h2.1v-12.9h-2.1v-2.4h13.9v5.1h-2.4l-.1-2.7h-6.7v5h7.1v2.5h-7.1v5.4H37v2.5h-7.2z"
+    case "g":
+      return "M43.7 164.1c0 1.2 0 2.5-.1 3.8h-2.4l-.1-2.6c-14.5-5.8-12.9 19.2.5 11V173h-5.3v-2.3H44v6.5c-5.1 6.7-17 1.6-15.9-6-.6-7.6 9.4-12.1 15.6-7.1z"
+    case "h":
+      return "M45.6 177.7v2.5h-6.8v-2.5h2v-5.5h-9.2v5.5h2v2.5h-6.8v-2.5H29v-12.8h-2.1v-2.5h6.8v2.5h-2v5h9.2v-5h-2v-2.5h6.8v2.5h-2.1v12.8h2z"
+    case "i":
+      return "M40.3 177.7v2.5h-7.1v-2.5h2.2v-12.8h-2.1v-2.5h7v2.5H38v12.8h2.3z"
     default:
-      // I stopped putting letters on 'F' because I don't know how to create new svg letters :(
+      // I stopped putting letters on 'I' because I don't know how to create new svg letters :(
       return ""
   }
 }

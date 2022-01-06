@@ -3,27 +3,78 @@ import { createSlice } from '@reduxjs/toolkit';
 const bookShelf = createSlice({
   name: 'bookShelf',
   initialState: {
-    books: 0,
+    books: 9,
     topShelf: [
       {
-        id: '',
-        color: '',
-        letter: '',
-        letterColor: ''
+        id: '0',
+        color: 'yellow',
+        letter: 'A',
+        letterColor: 'black',
+        size: 3
+      },
+      {
+        id: '1',
+        color: 'red',
+        letter: 'B',
+        letterColor: 'black',
+        size: 2
+      },
+      {
+        id: '2',
+        color: 'orange',
+        letter: 'C',
+        letterColor: 'black',
+        size: 4
+      },
+      {
+        id: '3',
+        color: 'purple',
+        letter: 'D',
+        letterColor: 'black',
+        size: 4
+      },
+      {
+        id: '4',
+        color: 'cyan',
+        letter: 'E',
+        letterColor: 'black',
+        size: 1
+      },
+      {
+        id: '5',
+        color: 'violet',
+        letter: 'F',
+        letterColor: 'black',
+        size: 2
       }
     ],
     bottomShelf : [
       {
-        id: '',
-        color: '',
-        letter: '',
-        letterColor: ''
+        id: '6',
+        color: 'green',
+        letter: 'i',
+        letterColor: 'black',
+        size: 4
+      },
+      {
+        id: '7',
+        color: 'blue',
+        letter: 'h',
+        letterColor: 'black',
+        size: 4
+      },
+      {
+        id: '8',
+        color: 'lightpink',
+        letter: 'G',
+        letterColor: 'black',
+        size: 2
       }
     ]
   },
   reducers: {
     addBookToTopShelf: (state, { payload }) => {
-      if(state.topShelf.length > 9) {
+      if(state.topShelf.length >= 9) {
         window.alert('Shelf full of books! Try the bottom shelf')
         return
       }
@@ -31,7 +82,7 @@ const bookShelf = createSlice({
       state.books += 1;
     },
     addBookToBottomShelf: (state, { payload }) => {
-      if(state.bottomShelf.length > 9) {
+      if(state.bottomShelf.length >= 9) {
         window.alert('Shelf full of books! Try the bottom shelf')
         return
       }
@@ -40,14 +91,6 @@ const bookShelf = createSlice({
     },
     updateTopShelf: (state, { payload }) => {
       state.topShelf = payload;
-    },
-    removeBookFromTopShelf: (state, { payload }) => {
-      const index = state.topShelf.indexOf(payload)
-      state.topShelf.splice(index, 1)
-    },
-    removeBookFromBottomShelf: (state, { payload }) => {
-      const index =state.bottomShelf.indexOf(payload)
-      state.bottomShelf.splice(index, 1);
     },
     updateBottomShelf: (state, { payload }) => {
       state.bottomShelf = payload;
@@ -60,8 +103,6 @@ const { reducer, actions } = bookShelf;
 export const { 
   addBookToTopShelf, 
   addBookToBottomShelf,
-  removeBookFromTopShelf,
-  removeBookFromBottomShelf,
   updateTopShelf,
   updateBottomShelf
 } = actions;

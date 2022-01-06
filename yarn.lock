@@ -2916,6 +2916,18 @@ color-name@^1.1.4, color-name@~1.1.4:
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.4.tgz#c2a09a87acbde69543de6f63fa3995c826c536a2"
   integrity sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==
 
+color-sorter@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/color-sorter/-/color-sorter-5.0.2.tgz#a8d7f4c024069a151be97850882696bfaf064255"
+  integrity sha512-1a60fmtX4JXWZ+WfPC8j06CJlFmDzSVqcf04UMwvmyewo4HUc/VTsJJ5JOQuV8dT89h8C/8VtbFZutCRx3qsKw==
+  dependencies:
+    colord "^1.1.0"
+
+colord@^1.1.0:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/colord/-/colord-1.7.2.tgz#474f0e46333cb5c7a191dbd571edeee19a5f97b6"
+  integrity sha512-/sQCxy6PEhZbrAn1+NVRRefy3k4jkWQGxk7mo2o0CoNA24jq4ujDc2jXzJ5uXphm/TwfdGOP0w8U+H+9ys4Peg==
+
 colord@^2.9.1:
   version "2.9.2"
   resolved "https://registry.yarnpkg.com/colord/-/colord-2.9.2.tgz#25e2bacbbaa65991422c07ea209e2089428effb1"

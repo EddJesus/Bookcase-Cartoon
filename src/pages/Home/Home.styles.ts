@@ -69,6 +69,7 @@ export const StyledForm = styled.div<LogoProps>`
   margin-top: 2%;
 
   border-radius: 10px;
+  border: 3px solid #633584;
 
   background-color: #9b6dbf;
 
@@ -103,6 +104,7 @@ export const AddBookButton = styled.button`
 `
 
 export const Input = styled.input`
+  width: 70%;
   z-index: 5;
 
   background-color: transparent;
@@ -112,7 +114,39 @@ export const Input = styled.input`
   margin-bottom: 10px;
 
   border: 0;
-  border-bottom: 2px solid white;
+  border-bottom: 1px solid white;
+
+  ::placeholder,
+  ::-webkit-input-placeholder {
+    padding-left: 5px;
+    color: #ffdded;
+    opacity: 0.5;
+  }
+  :-ms-input-placeholder {
+    padding-left: 5px;
+    color: #ffdded;
+    opacity: 0.5;
+  }
+
+  &:focus {
+      outline: none;
+      box-shadow: 0px 0px 0px transparent;
+      background-color: #f36d6d40;
+  }
+`
+
+export const Select = styled.select`
+  width: 70%;
+  z-index: 5;
+
+  background-color: transparent;
+
+  color: white;
+
+  margin-bottom: 10px;
+
+  border: 0;
+  border-bottom: 1px solid white;
 
   ::placeholder,
   ::-webkit-input-placeholder {
@@ -125,14 +159,17 @@ export const Input = styled.input`
   &:focus {
       outline: none;
       box-shadow: 0px 0px 0px transparent;
-      background-color: #f36d6d40;
   }
+`
+
+export const SelectOption = styled.option`
+  color: #9b6dbf;
 `
 
 export const CreateButton = styled.button`
   z-index: 5;
 
-  padding: 6px 12px;
+  padding: 3px 6px;
 
   background-color: white;
 
@@ -147,5 +184,10 @@ export const CreateButton = styled.button`
     opacity: 0.7;
     transition: 300ms;
     cursor: pointer;
+  }
+
+  &:focus {
+      outline: none;
+      box-shadow: 0px 0px 0px transparent;
   }
 ` 

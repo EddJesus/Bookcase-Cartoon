@@ -7,17 +7,19 @@ import { addBookToTopShelf, addBookToBottomShelf, updateTopShelf, updateBottomSh
 
 import Ground from '../../assets/ground.svg'
 import BgStripes from '../../assets/bg_stripes.svg'
-import { Board, Bookcase } from '../../components/index'
+import { Board, Bookcase, Clock } from '../../components/index'
 
 import { 
   Container, 
   Header, 
   Body, 
-  StyledLogo, 
-  AddBookButton, 
+  AddBookButton,
+  StyledLogo,
   StyledForm, 
   Input,
-  CreateButton
+  CreateButton,
+  Select,
+  SelectOption
 } from './Home.styles'
 
 const Home = () => {
@@ -77,13 +79,13 @@ const Home = () => {
     
   };
 
-  const addBookToShelf = (shelf: string, letter: string, color: string, letterColor: string) => {
+  const addBookToShelf = (shelf: string, letter: string, color: string, letterColor: string, size: string) => {
     switch (shelf.toLowerCase()) {
       case "top":
-        dispatch(addBookToTopShelf({letter, color, letterColor}));
+        dispatch(addBookToTopShelf({letter, color, letterColor, size: Number(size)}));
           break;
       case "bottom":
-        dispatch(addBookToBottomShelf({letter, color, letterColor}));
+        dispatch(addBookToBottomShelf({letter, color, letterColor, size: Number(size)}));
           break;
       default:
         window.alert("Shelf doesn't exist")
@@ -91,7 +93,7 @@ const Home = () => {
     }
 
     // @ts-ignore
-    document.getElementById("shelf").value = ''; document.getElementById("letter").value = ''; document.getElementById("color").value = ''; document.getElementById("letter-color").value = ''
+    document.getElementById("letter").value = ''; document.getElementById("color").value = ''; document.getElementById("letter-color").value = '';
   }
 
   return (
@@ -100,14 +102,24 @@ const Home = () => {
         <AddBookButton onClick={() => setAddBookButtomVisibility(!addBookButtomVisibility)}>
           {addBookButtomVisibility ? "Return Vizpert logo" : "Add new book"}
         </AddBookButton>
+        <Clock />
         <StyledLogo hidden={addBookButtomVisibility}/>
         <StyledForm hidden={!addBookButtomVisibility}>
-          <Input id="shelf" name="shelf" type="text" placeholder="Shelf"/>
+          <Select id="shelf" name="shelf" placeholder='shelf'>
+            <SelectOption value="top">Top shelf</SelectOption>
+            <SelectOption value="bottom">Bottom Shelf</SelectOption>
+          </Select>
           <Input id="letter" name="letter" type="text" placeholder="Letter"/>
           <Input id="color" name="color" type="text" placeholder="Book's color"/>
           <Input id="letter-color" name="letter-color" type="text" placeholder="Letter's color"/>
+          <Select id="size" name="letter-color" placeholder='size'>
+            <SelectOption value="1">1</SelectOption>
+            <SelectOption value="2">2</SelectOption>
+            <SelectOption value="3">3</SelectOption>
+            <SelectOption value="4">4</SelectOption>
+          </Select>
           {/* @ts-ignore */}
-          <CreateButton onClick={() => addBookToShelf(document.getElementById("shelf").value, document.getElementById("letter").value, document.getElementById("color").value, document.getElementById("letter-color").value)}>Criar</CreateButton>
+          <CreateButton onClick={() => addBookToShelf(document.getElementById("shelf").value, document.getElementById("letter").value, document.getElementById("color").value, document.getElementById("letter-color").value, document.getElementById("size").value)}>Criar</CreateButton>
         </StyledForm>
       </Header>
       <Body style={{ backgroundImage: `url(${Ground})` }}>
