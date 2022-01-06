@@ -57,7 +57,7 @@ export const StyledLogo = styled(Logo)<LogoProps>`
 `
 
 export const StyledForm = styled.div<LogoProps>`
-  height: 34%;
+  height: 50%;
   width: 70%;
   max-width: 330px;
 
