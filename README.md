@@ -1,4 +1,4 @@
-# Eduardo de Jesus Vizpert Challenge
+# Cartoon Book Case
 
 ## About The Project
 The application is a bookcase that can be controlled by a board and a form.
